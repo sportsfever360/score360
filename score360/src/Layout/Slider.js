@@ -7,62 +7,62 @@ class Slider extends Component {
       <div className="mt-3 bg-dark">
         <div
           id="carouselExampleIndicators"
-          class="carousel slide"
+          className="carousel slide"
           data-ride="carousel"
         >
-          <ol class="carousel-indicators">
+          <ol className="carousel-indicators">
             <li
               data-target="#carouselExampleIndicators"
               data-slide-to="0"
-              class="active"
+              className="active"
             />
             <li data-target="#carouselExampleIndicators" data-slide-to="1" />
             <li data-target="#carouselExampleIndicators" data-slide-to="2" />
           </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item  active">
+          <div className="carousel-inner">
+            <div className="carousel-item  active">
               <div className="container">
                 <div className="row">
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/wtf" class="btn btn-primary">
+                        <a href="/wtf" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/stfu" class="btn btn-primary">
+                        <a href="/stfu" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/stfu" class="btn btn-primary">
+                        <a href="/stfu" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
@@ -71,49 +71,49 @@ class Slider extends Component {
                 </div>
               </div>
             </div>
-            <div class="carousel-item ">
+            <div className="carousel-item ">
               <div className="container">
                 <div className="row">
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/wtf" class="btn btn-primary">
+                        <a href="/wtf" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/stfu" class="btn btn-primary">
+                        <a href="/stfu" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div class="card">
-                      <h5 class="card-header">Featured</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">
+                    <div className="card">
+                      <h5 className="card-header">Featured</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Special title treatment</h5>
+                        <p className="card-text">
                           With supporting text below as a natural lead-in to
                           additional content.
                         </p>
-                        <a href="/stfu" class="btn btn-primary">
+                        <a href="/stfu" className="btn btn-primary">
                           Hello
                         </a>
                       </div>
@@ -125,22 +125,22 @@ class Slider extends Component {
           </div>
 
           <a
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             href="#carouselExampleIndicators"
             role="button"
             data-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true" />
-            <span class="sr-only">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
+            <span className="sr-only">Previous</span>
           </a>
           <a
-            class="carousel-control-next"
+            className="carousel-control-next"
             href="#carouselExampleIndicators"
             role="button"
             data-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true" />
-            <span class="sr-only">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true" />
+            <span className="sr-only">Next</span>
           </a>
         </div>
       </div>

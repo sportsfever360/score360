@@ -1,12 +1,13 @@
 import React from "react";
 import logo from "../logo/logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-      <a className="navbar-brand">
+      <Link to="/" className="navbar-brand">
         <img src={logo} width="100" />
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -21,9 +22,9 @@ function Header() {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" style={{ color: "white" }}>
+            <Link to="/" className="nav-link" style={{ color: "white" }}>
               Home <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
             <a className="nav-link " style={{ color: "white" }}>
@@ -31,9 +32,13 @@ function Header() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" style={{ color: "white" }}>
+            <Link
+              to="/matchresult "
+              className="nav-link"
+              style={{ color: "white" }}
+            >
               Matches
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" style={{ color: "white" }}>
@@ -51,9 +56,13 @@ function Header() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" style={{ color: "white" }}>
+            <Link
+              to="/leaguelist"
+              className="nav-link"
+              style={{ color: "white" }}
+            >
               League
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
