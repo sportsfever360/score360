@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TeamCounter from "./TeamCounter";
 
 class LeagueList extends Component {
   state = {
@@ -46,8 +47,8 @@ class LeagueList extends Component {
                     </li>
                   </ul>
                   <div className="card-body">
-                    <a href="#" className="card-link">
-                      Card link
+                    <a href="#" className="card-link ">
+                      No of Teams = {<TeamCounter />}
                     </a>
                     <a href="#" className="card-link">
                       Another link

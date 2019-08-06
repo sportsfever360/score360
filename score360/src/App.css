@@ -113,9 +113,15 @@ li {
 }
 .card {
   width: "18rem";
-  background-image: url("logo/t20.jpg");
+  /* background-image: url("logo/t20.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   margin: 10px;
   box-shadow: 5px 5px 3px grey;
+}
+.navbar-custom {
+  background-color: #bd4233;
+}
+.navbar-custom li a {
+  color: #ffffff;
 }

@@ -10,6 +10,8 @@ import SliderComponent from "./Layout/SliderComponent";
 import { Provider } from "./Context";
 import LeagueList from "./components/LeagueList";
 import Fixtures from "./components/Fixtures";
+import TeamCounter from "./components/TeamCounter";
+import FixtureDetail from "./components/FixtureDetail";
 
 class App extends Component {
   render() {
@@ -19,6 +21,7 @@ class App extends Component {
           <Router>
             <Responsive />
             <Header />
+            <FixtureDetail />
 
             <Switch>
               {/* <Route exact path="/" component={Responsive} /> */}
