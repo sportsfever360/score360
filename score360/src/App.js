@@ -11,7 +11,7 @@ import { Provider } from "./Context";
 import LeagueList from "./components/LeagueList";
 import Fixtures from "./components/Fixtures";
 import TeamCounter from "./components/TeamCounter";
-import FixtureDetail from "./components/FixtureDetail";
+import FixtureDetail from "./components/Fixture/FixtureDetail";
 
 class App extends Component {
   render() {

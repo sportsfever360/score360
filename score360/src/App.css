@@ -119,9 +119,14 @@ li {
   margin: 10px;
   box-shadow: 5px 5px 3px grey;
 }
+/* Fixture Navbar */
 .navbar-custom {
   background-color: #bd4233;
 }
 .navbar-custom li a {
   color: #ffffff;
+}
+/* Fixture MatchResult CSS */
+.fixture-1 {
+  display: flex;
 }
