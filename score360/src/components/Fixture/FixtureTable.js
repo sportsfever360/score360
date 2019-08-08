@@ -3,7 +3,8 @@ import axios from "axios";
 
 class FixtureTable extends Component {
   state = {
-    result: []
+    result: [],
+    result2: []
   };
 
   componentDidMount() {
@@ -18,12 +19,14 @@ class FixtureTable extends Component {
       )
       .then(res => {
         this.setState({
-          result: res.data.data.values.t1Batting
+          result: res.data.data.values.t1Batting,
+          result2: res.data.data.values.t2Batting
         });
       });
   }
   render() {
-    const { result } = this.state;
+    const { result, result2 } = this.state;
+    console.log(result2);
 
     return (
       <div
@@ -34,58 +37,51 @@ class FixtureTable extends Component {
           paddingLeft: "40px"
         }}
       >
-        <h1 style={{ fontSize: "20px" }}>Best Performances </h1>
-        <table class="table">
+        <h1 style={{ fontSize: "20px" }}>Batsman Performances </h1>
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Run Scored</th>
-              <th scope="col">Balls Faced</th>
+              <th scope="col">R</th>
+              <th scope="col">B</th>
+              <th scope="col">4s</th>
+              <th scope="col">6s</th>
             </tr>
           </thead>
           {result.map(result => (
             <tbody>
               <tr>
-                <th scope="row">1</th>
-
                 <td>{result.firstName}</td>
                 <td>{result.runsScored}</td>
                 <td>{result.ballsFaced}</td>
+                <td>{result.fours}</td>
+                <td>{result.sixers}</td>
               </tr>
             </tbody>
           ))}
         </table>
 
-        <table class="table">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Name</th>
+              <th scope="col">R</th>
+              <th scope="col">B</th>
+              <th scope="col">4s</th>
+              <th scope="col">6s</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
+          {result2.map(result2 => (
+            <tbody>
+              <tr>
+                <td>{result2.firstName}</td>
+                <td>{result2.runsScored}</td>
+                <td>{result2.ballsFaced}</td>
+                <td>{result2.fours}</td>
+                <td>{result2.sixers}</td>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
     );

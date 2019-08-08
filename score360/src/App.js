@@ -21,11 +21,16 @@ class App extends Component {
           <Router>
             <Responsive />
             <Header />
-            <FixtureDetail />
+            {/* <FixtureDetail /> */}
 
             <Switch>
-              {/* <Route exact path="/" component={Responsive} /> */}
-              <Route exact path="/slidertest" component={Responsive} />
+              <Route
+                exact
+                path="/fixture/fixturedetail"
+                component={FixtureDetail}
+              />
+              <Route exact path="/fixture/:id" component={Fixtures} />
+
               <Route exact path="/matchresult" component={MatchResult} />
 
               <Route exact path="/leaguelist" component={LeagueList} />

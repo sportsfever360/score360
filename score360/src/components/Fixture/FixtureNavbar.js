@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class FixtureNavbar extends Component {
   render() {
@@ -8,14 +9,14 @@ class FixtureNavbar extends Component {
           <div class="navbar-collapse collapse pt-2 pt-md-0" id="navbar2">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <Link to="/fixture/fixturesummary" class="nav-link" href="#">
                   Summary
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link to="/fixture/fixturescorecard" class="nav-link" href="#">
                   Scoreboard
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
