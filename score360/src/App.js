@@ -21,12 +21,11 @@ class App extends Component {
           <Router>
             <Responsive />
             <Header />
-            {/* <FixtureDetail /> */}
 
             <Switch>
               <Route
                 exact
-                path="/fixture/fixturedetail"
+                path="/fixturedetail/:id"
                 component={FixtureDetail}
               />
               <Route exact path="/fixture/:id" component={Fixtures} />

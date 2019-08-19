@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 class Fixtures extends Component {
   state = {
     fixture: [],
-    loading: false
+    loading: false,
+    error: false,
+    errormsg: ""
   };
 
   componentDidMount() {
@@ -20,48 +22,62 @@ class Fixtures extends Component {
         { headers }
       )
       .then(res => {
-        this.setState({
-          fixture: res.data.data
-        });
-        console.log(res.data);
+        if (res.data.errorCode) {
+          this.setState({
+            errormsg: res.data.errorMessage,
+            error: true
+          });
+        } else {
+          this.setState({
+            fixture: res.data.data
+          });
+        }
       });
   }
   render() {
-    const { loading, fixture } = this.state;
+    const { fixture, error, errormsg } = this.state;
     console.log(fixture.teamOneName);
     return (
       <React.Fragment>
-        {fixture.map(fixture => (
-          <Link to="fixturedetail">
-            <div class="score_header">
-              <div class=" match_single">
-                <div class="live_match">
-                  <div class="series_icon">
-                    <img class="icon" src={cwc} alt="" />
-                  </div>
-
-                  <div class=" live_match_details">
-                    <p class="series_name">ICC CWC 2019</p>
-                    <div class="match_details">
-                      <div class="teams">
-                        <p class="team_name">{fixture.teamOneName}</p>
-
-                        <p class="team_name">{fixture.teamTwoName}</p>
+        {error ? (
+          <div class="alert alert-danger container mt-5" role="alert">
+            {errormsg}
+          </div>
+        ) : (
+          <div>
+            {fixture.map(fixture => (
+              <Link to={`/fixturedetail/${fixture.matchID}`}>
+                <div class="score_header">
+                  <div class=" match_single">
+                    <div class="live_match">
+                      <div class="series_icon">
+                        <img class="icon" src={cwc} alt="" />
                       </div>
-                      <div class="scores">
-                        <p class="team_score">122/9</p>
-                        <p class="team_score">122/9</p>
+
+                      <div class=" live_match_details">
+                        <p class="series_name">ICC CWC 2019</p>
+                        <div class="match_details">
+                          <div class="teams">
+                            <p class="team_name">{fixture.teamOneName}</p>
+
+                            <p class="team_name">{fixture.teamTwoName}</p>
+                          </div>
+                          <div class="scores">
+                            <p class="team_score">122/9</p>
+                            <p class="team_score">122/9</p>
+                          </div>
+                        </div>
+                        <div class="match_result">
+                          <p>{fixture.leagueName}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="match_result">
-                      <p>{fixture.leagueName}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </Link>
-        ))}
+              </Link>
+            ))}
+          </div>
+        )}
       </React.Fragment>
     );
   }

@@ -2,18 +2,27 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class MatchResult extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     result: []
   };
 
   componentDidMount() {
+    const fixtureid = window.location.pathname;
+    const array = fixtureid.split("/");
+    console.log(array);
+    const id = array[2];
+    console.log(id);
+
     var headers = {
       ApiKey: "6s3C12rE47",
       consumerKey: "1S2c4R7e36_"
     };
     axios
       .get(
-        " https://cors-anywhere.herokuapp.com/http://sportapi.cricclubs.com/sport/liveScoreOverlay/liveScoreOverlayData?clubId=12047&matchId=5 ",
+        `https://cors-anywhere.herokuapp.com/http://sportapi.cricclubs.com/sport/liveScoreOverlay/liveScoreOverlayData?clubId=12047&matchId=${id}`,
         { headers }
       )
       .then(res => {
@@ -25,6 +34,7 @@ class MatchResult extends Component {
 
   render() {
     const { result } = this.state;
+
     return (
       <div class="card" style={{ width: "30rem", height: "14rem" }}>
         <div class="card-body">

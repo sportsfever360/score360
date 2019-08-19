@@ -4,10 +4,13 @@ import FixtureTable from "./FixtureTable";
 
 class FixtureSummary extends Component {
   render() {
+    const { id } = this.props;
+    console.log(this.props);
+
     return (
-      <div className="fixture-1">
-        <MatchResult />
-        <FixtureTable />
+      <div>
+        <MatchResult id={id} />
+        <FixtureTable id={id} />
       </div>
     );
   }
