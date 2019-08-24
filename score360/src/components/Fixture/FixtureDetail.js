@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FixtureNavbar from "./FixtureNavbar";
 import FixtureSummary from "./FixtureSummary";
-import FixtureCommentart from "./FixtureCommentary";
+import FixtureCommentary from "./FixtureCommentary";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class FixtureDetail extends Component {
@@ -20,9 +20,8 @@ class FixtureDetail extends Component {
     return (
       <div>
         <Router>
-          <FixtureNavbar />
           <FixtureSummary />
-          <FixtureCommentart />
+          <FixtureCommentary />
         </Router>
       </div>
     );

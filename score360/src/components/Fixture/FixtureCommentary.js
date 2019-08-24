@@ -26,7 +26,7 @@ class FixtureCommentary extends Component {
   }
   render() {
     const { commentary } = this.state;
-    console.log(commentary);
+
     return (
       <div>
         {commentary.map(commentary => (

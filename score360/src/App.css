@@ -23,94 +23,7 @@ li {
 }
 
 /* Slider CSS */
-.score_header {
-  /* margin-left: 0px !important;
-  margin-right: 0px !important;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-height: 100px;
-  flex-wrap: nowrap;
-  display: flex; */
-}
-.match_single {
-  padding: 0px;
-}
-.live_match_details {
-  float: right;
-  width: 75%;
-  border-right: 1px solid #aaaaaa;
-  border-right-style: dotted;
-  padding-top: 5px;
-  padding-left: 50px;
-}
-.series_name {
-  text-align: left;
-  font-size: 0.4em;
-  /* font-weight: 700; */
-  margin: 0px;
-}
-.match_details {
-  overflow: hidden;
-}
-.teams {
-  float: left;
-}
-.team_name {
-  text-align: left;
-  font-size: 0.5em;
-  margin: 0px;
-  padding: 0px;
-}
-.scores {
-  float: right;
-  padding-right: 10px;
-}
-.team_score {
-  text-align: right;
-  font-size: 0.5em;
-  font-weight: 700;
-  margin: 0px;
-  padding: 0px;
-}
-.match_result {
-  text-align: right;
-  font-size: 0.4em;
-  font-weight: 700;
-  padding-right: 10px;
-}
-.match_result p {
-  margin-bottom: 5px;
-}
 
-.series_icon {
-  float: left;
-  padding-right: 33px;
-  width: 25%;
-}
-
-/* LeagueList CSS */
-.container-1 div {
-  padding: 10px;
-}
-.container-1 {
-  display: flex;
-  align-self: center;
-  padding-top: 30px;
-}
-.box-1 {
-  flex: 1;
-}
-.box-2 {
-  flex: 1;
-}
-
-.box-3 {
-  flex: 1;
-}
-.box-4 {
-  flex: 1;
-}
 .card {
   width: "18rem";
   /* background-image: url("logo/t20.jpg"); */
@@ -126,4 +39,34 @@ li {
 .navbar-custom li a {
   color: #ffffff;
 }
-/* Fixture MatchResult CSS */
+/*Navbar CSS */
+.navigation {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  background-color: crimson;
+  text-align: right;
+  width: 100%;
+  overflow: hidden;
+  height: 65px;
+  padding-top: 10px;
+}
+
+.logo img {
+  height: 40px;
+  float: left;
+  padding-top: 5px;
+}
+
+.nav {
+  float: right;
+}
+
+.nav .nav-item .nav-link {
+  font-size: 1em;
+  color: #ffffff;
+}
+*/ .nav .nav-item .active {
+  font-size: 1em;
+  font-weight: 700;
+  color: #ffffff;
+}

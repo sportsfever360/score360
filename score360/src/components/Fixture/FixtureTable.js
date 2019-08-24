@@ -6,15 +6,20 @@ class FixtureTable extends Component {
     t1batting: [],
     t2batting: [],
     t1bowling: [],
-    t2bowling: []
+    t2bowling: [],
+    showDetail: true
+  };
+  showTable = () => {
+    this.setState({
+      showDetail: !this.state.showDetail
+    });
   };
 
   componentDidMount() {
     const fixtureid = window.location.pathname;
     const array = fixtureid.split("/");
-    console.log(array);
+
     const id = array[2];
-    console.log(id);
 
     var headers = {
       ApiKey: "6s3C12rE47",
@@ -26,7 +31,6 @@ class FixtureTable extends Component {
         { headers }
       )
       .then(res => {
-        console.log(res.data);
         this.setState({
           t1batting: res.data.data.team1Batting,
           t2batting: res.data.data.team2Batting,
@@ -36,7 +40,13 @@ class FixtureTable extends Component {
       });
   }
   render() {
-    const { t1batting, t2batting, t1bowling, t2bowling } = this.state;
+    const {
+      t1batting,
+      t2batting,
+      t1bowling,
+      t2bowling,
+      showDetail
+    } = this.state;
 
     return (
       <div
@@ -58,6 +68,7 @@ class FixtureTable extends Component {
               <th scope="col">6s</th>
             </tr>
           </thead>
+
           {t1batting.map(result => (
             <tbody>
               <tr>

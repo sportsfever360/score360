@@ -45,7 +45,7 @@ class Responsive extends Component {
         {value => {
           const { matches } = value;
           return (
-            <div>
+            <div className="overflow-hidden">
               <Slider {...settings}>
                 {matches.map(matches => (
                   <div>

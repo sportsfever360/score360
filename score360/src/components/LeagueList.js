@@ -30,15 +30,45 @@ class LeagueList extends Component {
     const { leagues } = this.state;
 
     return (
-      <div className="container-1">
-        <div className="box-1">
-          <h1 className="display-7">T 10's</h1>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-3">
+            <h1 className="display-7">T 10's</h1>
 
-          {leagues
-            .filter(league => league.seriesType == "Ten10")
-            .map((league, key) => (
-              <Link to={`/fixture/${league.leagueId}`}>
-                <div>
+            {leagues
+              .filter(league => league.seriesType == "Ten10")
+              .map((league, key) => (
+                <Link to={`/fixture/${league.leagueId}`}>
+                  <div>
+                    <div className="card" key={league.leagueId}>
+                      <div className="card-body">
+                        <h5 className="card-title">{league.name}</h5>
+                      </div>
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
+                          Since = {league.startDate}
+                        </li>
+                      </ul>
+                      <div className="card-body">
+                        <a href="#" className="card-link ">
+                          No of Teams = {<TeamCounter />}
+                        </a>
+                        <a href="#" className="card-link">
+                          Another link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+          <div className="col-md-3">
+            <h1 className="display-7">T 20's</h1>
+
+            {leagues
+              .filter(league => league.seriesType == "Twenty20")
+              .map((league, key) => (
+                <Link to={`/fixture/${league.leagueId}`}>
                   <div className="card" key={league.leagueId}>
                     <div className="card-body">
                       <h5 className="card-title">{league.name}</h5>
@@ -49,101 +79,73 @@ class LeagueList extends Component {
                       </li>
                     </ul>
                     <div className="card-body">
-                      <a href="#" className="card-link ">
-                        No of Teams = {<TeamCounter />}
+                      <a href="#" className="card-link">
+                        Card link
                       </a>
                       <a href="#" className="card-link">
                         Another link
                       </a>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-        </div>
-        <div className="box-2">
-          <h1 className="display-7">T 20's</h1>
+                </Link>
+              ))}
+          </div>
+          <div className="col-md-3">
+            <h1 className="display-7">ODI's</h1>
 
-          {leagues
-            .filter(league => league.seriesType == "Twenty20")
-            .map((league, key) => (
-              <Link to={`/fixture/${league.leagueId}`}>
-                <div className="card" key={league.leagueId}>
-                  <div className="card-body">
-                    <h5 className="card-title">{league.name}</h5>
+            {leagues
+              .filter(league => league.seriesType == "One Day")
+              .map((league, key) => (
+                <Link to={`/fixture/${league.leagueId}`}>
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{league.name}</h5>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        Since = {league.startDate}
+                      </li>
+                    </ul>
+                    <div className="card-body">
+                      <a href="#" className="card-link">
+                        Card link
+                      </a>
+                      <a href="#" className="card-link">
+                        Another link
+                      </a>
+                    </div>
                   </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
-                      Since = {league.startDate}
-                    </li>
-                  </ul>
-                  <div className="card-body">
-                    <a href="#" className="card-link">
-                      Card link
-                    </a>
-                    <a href="#" className="card-link">
-                      Another link
-                    </a>
-                  </div>
-                </div>
-              </Link>
-            ))}
-        </div>
-        <div className="box-3">
-          <h1 className="display-7">ODI's</h1>
+                </Link>
+              ))}
+          </div>
+          <div className="col-md-3">
+            <h1 className="display-7">Test's</h1>
 
-          {leagues
-            .filter(league => league.seriesType == "One Day")
-            .map((league, key) => (
-              <Link to={`/fixture/${league.leagueId}`}>
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{league.name}</h5>
+            {leagues
+              .filter(league => league.seriesType == "Test")
+              .map((league, key) => (
+                <Link to={`/fixture/${league.leagueId}`}>
+                  <div className="card" key={league.leagueId}>
+                    <div className="card-body">
+                      <h5 className="card-title">{league.name}</h5>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        Since = {league.startDate}
+                      </li>
+                    </ul>
+                    <div className="card-body">
+                      <a href="#" className="card-link">
+                        Card link
+                      </a>
+                      <a href="#" className="card-link">
+                        Another link
+                      </a>
+                    </div>
                   </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
-                      Since = {league.startDate}
-                    </li>
-                  </ul>
-                  <div className="card-body">
-                    <a href="#" className="card-link">
-                      Card link
-                    </a>
-                    <a href="#" className="card-link">
-                      Another link
-                    </a>
-                  </div>
-                </div>
-              </Link>
-            ))}
-        </div>
-        <div className="box-4">
-          <h1 className="display-7">Test's</h1>
-
-          {leagues
-            .filter(league => league.seriesType == "Test")
-            .map((league, key) => (
-              <Link to={`/fixture/${league.leagueId}`}>
-                <div className="card" key={league.leagueId}>
-                  <div className="card-body">
-                    <h5 className="card-title">{league.name}</h5>
-                  </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
-                      Since = {league.startDate}
-                    </li>
-                  </ul>
-                  <div className="card-body">
-                    <a href="#" className="card-link">
-                      Card link
-                    </a>
-                    <a href="#" className="card-link">
-                      Another link
-                    </a>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+          </div>
         </div>
       </div>
     );

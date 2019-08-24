@@ -1,0 +1,59 @@
+.score_header {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.match_single {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #aaaaaa;
+  border-right-style: dotted;
+}
+
+.series_name {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.result {
+  margin-top: 5px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.match_details {
+  overflow: hidden;
+}
+
+.team_logo {
+  height: 20px;
+  align-content: center;
+}
+
+.team_name {
+  text-align: left;
+  font-size: 13px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.team_one_score {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+
+.team_two_score {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}

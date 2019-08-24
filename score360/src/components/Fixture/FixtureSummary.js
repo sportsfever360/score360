@@ -9,8 +9,8 @@ class FixtureSummary extends Component {
 
     return (
       <div>
-        <MatchResult id={id} />
-        <FixtureTable id={id} />
+        <MatchResult />
+        <FixtureTable />
       </div>
     );
   }

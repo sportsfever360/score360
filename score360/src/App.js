@@ -12,6 +12,7 @@ import LeagueList from "./components/LeagueList";
 import Fixtures from "./components/Fixtures";
 import TeamCounter from "./components/TeamCounter";
 import FixtureDetail from "./components/Fixture/FixtureDetail";
+import Footer from "./Layout/Footer";
 
 class App extends Component {
   render() {
@@ -32,10 +33,11 @@ class App extends Component {
 
               <Route exact path="/matchresult" component={MatchResult} />
 
-              <Route exact path="/leaguelist" component={LeagueList} />
+              <Route exact path="/" component={LeagueList} />
             </Switch>
           </Router>
         </Provider>
+        <Footer />
       </div>
     );
   }
