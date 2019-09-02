@@ -18,9 +18,14 @@ function Header() {
             </Link>
           </li>
           <li class="nav-item">
-            <Link to="/leaguelist" class="nav-link" href="#">
-              Leagues
+            <Link to="/leaguelist" class="nav-link active" href="#">
+              leagues
             </Link>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              SportsFever360
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
