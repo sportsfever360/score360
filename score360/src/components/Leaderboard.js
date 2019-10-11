@@ -3,7 +3,8 @@ import axios from 'axios'
 
  class Leaderboard extends Component {
 	 state= {
-		 batmans: []
+         batmans: [],
+         bowlers: []
 	 }
 	componentDidMount(){
 		var headers = {
@@ -20,6 +21,17 @@ import axios from 'axios'
 				batmans: res.data.data
 			  });
 			  
+            });
+            axios
+			.get(
+			  " http://sportapi.cricclubs.com/sport/ball/records?teamId=14&leagueId=8&clubId=12047&limit=5 ",
+			  { headers }
+			)
+			.then(res => {
+			  this.setState({
+				bowlers: res.data.data
+			  });
+			  
 			});
 	}
 	
@@ -27,7 +39,7 @@ import axios from 'axios'
 
 
 	render() {
-		const {batmans}= this.state;
+		const {batmans, bowlers}= this.state;
 		
 		return (
 			
@@ -123,27 +135,9 @@ import axios from 'axios'
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="v-a-m">
-                                                        <div class="media media-auto">
-                                                            <div class="media-left">
-                                                                <div class="avatar">
-                                                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/saulihirvi/128.jpg" alt="Avatar"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <span class="media-heading text-white">Player One</span>
-                                                                <br/>
-                                                                <span class="media-heading"><span>Demo Team One, Islamabad</span></span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="v-a-m"><span class="text-white">36</span>
-                                                    </td>
-                                                    <td class="v-a-m"> <span class="text-white">3.4</span>   
-                                                </td></tr>
+                                                {bowlers.map(bowlers=>(
 
-                                                <tr>
+<tr>
                                                     <td class="v-a-m">
                                                         <div class="media media-auto">
                                                             <div class="media-left">
@@ -152,76 +146,20 @@ import axios from 'axios'
                                                                 </div>
                                                             </div>
                                                             <div class="media-body">
-                                                                <span class="media-heading text-white">Player Two</span>
+                                                                <span class="media-heading text-white">{bowlers.firstName} {bowlers.lastName}</span>
                                                                 <br/>
                                                                 <span class="media-heading"><span>Demo Team One, Islamabad</span></span>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="v-a-m"><span class="text-white">36</span>
+                                                    <td class="v-a-m"><span class="text-white">{bowlers.matches}</span>
                                                     </td>
-                                                    <td class="v-a-m"> <span class="text-white">3.4</span>   
+                                                    <td class="v-a-m"> <span class="text-white">{Math.floor(bowlers.runs/(bowlers.balls/6))}</span>   
                                                 </td></tr>
+                                                ))}
+                                                
 
-                                                <tr>
-                                                    <td class="v-a-m">
-                                                        <div class="media media-auto">
-                                                            <div class="media-left">
-                                                                <div class="avatar">
-                                                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/saulihirvi/128.jpg" alt="Avatar"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <span class="media-heading text-white">Player Three</span>
-                                                                <br/>
-                                                                <span class="media-heading"><span>Demo Team One, Islamabad</span></span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="v-a-m"><span class="text-white">36</span>
-                                                    </td>
-                                                    <td class="v-a-m"> <span class="text-white">3.4</span>   
-                                                </td></tr>
-
-                                                <tr>
-                                                    <td class="v-a-m">
-                                                        <div class="media media-auto">
-                                                            <div class="media-left">
-                                                                <div class="avatar">
-                                                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/saulihirvi/128.jpg" alt="Avatar"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <span class="media-heading text-white">Player Four</span>
-                                                                <br/>
-                                                                <span class="media-heading"><span>Demo Team One, Islamabad</span></span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="v-a-m"><span class="text-white">36</span>
-                                                    </td>
-                                                    <td class="v-a-m"> <span class="text-white">3.4</span>   
-                                                </td></tr>
-
-                                                <tr>
-                                                    <td class="v-a-m">
-                                                        <div class="media media-auto">
-                                                            <div class="media-left">
-                                                                <div class="avatar">
-                                                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/saulihirvi/128.jpg" alt="Avatar"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <span class="media-heading text-white">Player Five</span>
-                                                                <br/>
-                                                                <span class="media-heading"><span>Demo Team One, Islamabad</span></span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="v-a-m"><span class="text-white">36</span>
-                                                    </td>
-                                                    <td class="v-a-m"> <span class="text-white">3.4</span>   
-                                                </td></tr>
+                                               
                             
                                             </tbody>
                                         </table>

@@ -3,18 +3,57 @@ import '../components/custom.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
-import Pagination from "react-js-pagination";
-import Leaderboard from './Leaderboard'
+
+import Leaderboard from './Leaderboard';
+import Pagination from '../Layout/Pagination';
 
 
 
 class LeagueListDesign extends Component {
-    state= {
-        leagues: [],
-        currentpage: 1,
-        postPerPage: 1
+   
         
-    }
+        state= {
+            leagues: [
+
+            // {
+            //     leagueId :"1",
+            //     startDate : "02/02/2019",
+            //     name : "demo 1",
+            //     seriesType : "Twenty20",
+            //     ballType : "hard ball"
+    
+            // },
+            // {
+            //     leagueId :"2",
+            //     startDate : "02/02/2019",
+            //     name : "demo 2",
+            //     seriesType : "One Day",
+            //     ballType : "hard ball"
+    
+            // },
+            // {
+            //     leagueId :"3",
+            //     startDate : "02/02/2019",
+            //     name : "demo 3",
+            //     seriesType : "Test",
+            //     ballType : "hard ball"
+    
+            // },
+            // {
+            //     leagueId :"4",
+            //     startDate : "02/02/2019",
+            //     name : "demo 4",
+            //     seriesType : "Ten10",
+            //     ballType : "hard ball"
+    
+            // }
+            ],
+            currentpage: 1,
+            postPerPage: 1
+            
+        }
+    
+   
 
 componentDidMount(){
     var headers = {
@@ -29,30 +68,45 @@ componentDidMount(){
         .then(res => {
           this.setState({
             leagues: res.data.data
+            
           });
           
         });
 }
-
- nextPage = () => {
-
-    const pageNumber =2;
-     
-     for(let i=1; i<= Math.ceil(this.state.leagues.lenght/this.state.postPerPage);i++){
-         this.setState({
-             currentpage: pageNumber
-         })
-         
-     }
-     console.log(pageNumber);
- }
+ 
+ 
 
 
   render() {
       const indexOfLastPage = this.state.currentpage * this.state.postPerPage;
       const indexOfFirstPage = indexOfLastPage - this.state.postPerPage;
      
-      const {leagues} = this.state;
+      const {leagues, postPerPage} = this.state;
+      const T20 = leagues.filter(league => league.seriesType == "Twenty20" );
+      
+      
+    
+
+
+      const nextPage =(type) => {
+        const filtered = leagues.filter(league => league.seriesType == type );
+        
+        this.setState(prevState => {
+            while(this.state.currentpage < filtered.length ){
+            return {currentpage: prevState.currentpage + 1}
+            }
+         })
+        
+      }
+      const prevPage =(type) => {
+        
+        this.setState(prevState => {
+            while(this.state.currentpage > 1 ){
+            return {currentpage: prevState.currentpage - 1}
+            }
+         })
+        
+      }
     return (
 		<div class="content">
             <div class="container-fluid">
@@ -75,7 +129,7 @@ componentDidMount(){
                                     <div class="panel-body p-t-1 p-b-1">
                                         
             {leagues
-              .filter(league => league.seriesType == "Ten10")
+              .filter(league => league.seriesType == "Ten10").slice(indexOfFirstPage,indexOfLastPage)
               .map((league, key) => (
                 <Link to={`/fixture/${league.leagueId}`}>
                                         <div class="" key={league.leagueId}>
@@ -87,7 +141,7 @@ componentDidMount(){
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                                     <h5 class="m-b-0">Ball Type</h5>
-                                                    <p>Leather Ball</p>
+                                                    <p>{league.ballType}</p>
                                                 </div>
                                             </div>
                                             <p class="small text-uppercase m-t-2"><strong>Progress</strong></p>
@@ -137,7 +191,7 @@ componentDidMount(){
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                                     <h5 class="m-b-0">Ball Type</h5>
-                                                    <p>Leather Ball</p>
+                                                    <p>{league.ballType}</p>
                                                 </div>
                                             </div>
                                             <p class="small text-uppercase m-t-2"><strong>Progress</strong></p>
@@ -153,8 +207,9 @@ componentDidMount(){
                                             <button type="button" class="btn btn-sm btn-default">View All</button>
                                         </div>
                                         <div class="btn-group pull-right" role="group" aria-label="...">
-                                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i></button>
-                                            <button type="button" class="btn btn-sm btn-default" onClick = { this.nextPage}><i class="fa fa-angle-right" ></i></button>
+                                            {/* <Pagination postsPerPage={this.state.postPerPage} totalPosts={this.state.leagues.length} paginate= {paginate}/> */}
+                                            <button type="button" class="btn btn-sm btn-default"onClick = {() => prevPage("Twenty20")}><i class="fa fa-angle-left"></i></button>
+                                            <button type="button" class="btn btn-sm btn-default" onClick = {() => nextPage("Twenty20")}><i class="fa fa-angle-right" ></i></button>
                                         </div>
 
                                     </div>
@@ -175,7 +230,7 @@ componentDidMount(){
                                     </div>
                                     <div class="panel-body p-t-1 p-b-1">
                                     {leagues
-              .filter(league => league.seriesType == "One Day")
+              .filter(league => league.seriesType == "One Day").slice(indexOfFirstPage,indexOfLastPage)
               .map((league, key) => (
                 <Link to={`/fixture/${league.leagueId}`}>
                                         <div class="" key={league.leagueId}>
@@ -187,7 +242,7 @@ componentDidMount(){
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                                     <h5 class="m-b-0">Ball Type</h5>
-                                                    <p>Leather Ball</p>
+                                                    <p>{league.ballType}</p>
                                                 </div>
                                                 </div>
                                             <p class="small text-uppercase m-t-2"><strong>Progress</strong></p>
@@ -227,7 +282,7 @@ componentDidMount(){
                                     </div>
                                     <div class="panel-body p-t-1 p-b-1">
                                     {leagues
-              .filter(league => league.seriesType == "Test")
+              .filter(league => league.seriesType == "Test").slice(indexOfFirstPage,indexOfLastPage)
               .map((league, key) => (
                 <Link to={`/fixture/${league.leagueId}`}>
                                         <div class=""  key={league.leagueId}>
